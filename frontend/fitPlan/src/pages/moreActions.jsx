@@ -6,30 +6,33 @@ import TraineeServices from "../services/traineeServices";
 import { useAuth } from "../context/auth.context";
 import BizUsersService from "../services/bizUserService";
 import { ACTION, usePlan } from "../context/plan.context";
+import usersService from "../services/userService";
 
 
 function MoreAction() {
-
+    const { user } = useAuth()
     const EXERCISES = useEx();
     const { plan, dispatch } = usePlan();
+    console.log(user)
 
     const location = useLocation();
-    const { exerciseDetails, day, traineeId } = location.state;
-    console.log(day)
+    const { exerciseDetails, day, traineeId, trainee } = location.state;
+    console.log(trainee)
 
+    const [message, setMessage] = useState('')
+    const [deleteMessage, setDeleteMessage] = useState('')
     const [exerciseId, setExerciseId] = useState("");
     const [sets, setSets] = useState(1);
     const [reps, setReps] = useState(1);
     const [specificDay, setSpecificDay] = useState(null);
 
-    console.log(plan)
+
 
     useEffect(() => {
 
         const foundDay = plan.find((d) => { return d.day === day })
-        console.log(foundDay)
         setSpecificDay(foundDay)
-        localStorage.setItem('specificDay', JSON.stringify(foundDay))
+
     }, [plan, day, location])
 
     if (specificDay?.length == 0) {
@@ -38,39 +41,85 @@ function MoreAction() {
     }
 
     const handleAddToPlan = async () => {
-        const data = {
-            dayName: day,
-            exerciseId: exerciseId,
-            sets: sets,
-            reps: reps,
-        };
+        if (trainee) {
+            const data = {
+                dayName: day,
+                exerciseId: exerciseId,
+                sets: sets,
+                reps: reps,
+            };
 
-        try {
-            const response = await TraineeServices.addToTraineePlan(traineeId, data)
+            try {
+                const response = await TraineeServices.addToTraineePlan(traineeId, data)
+                setMessage('The exercises added successfully')
+                setTimeout(() => { setMessage('') }, 3000)
+                dispatch({ type: ACTION.SET_PLAN, payload: response.data })
 
-            dispatch({ type: ACTION.SET_PLAN, payload: response.data })
-
-        } catch (err) {
+            } catch (err) {
+                setMessage('The exercise already exists')
+                setTimeout(() => { setMessage('') }, 3000)
+            }
 
         }
 
+        if (!trainee) {
+            const data = {
+                dayName: day,
+                exerciseId: exerciseId,
+                sets: sets,
+                reps: reps,
+            };
+
+            try {
+                const response = await usersService.addExercise(user._id, data)
+                setMessage('The exercises added successfully')
+                setTimeout(() => { setMessage('') }, 3000)
+                dispatch({ type: ACTION.SET_PLAN, payload: response.data })
+
+            } catch (err) {
+                setMessage('The exercise already exists')
+                setTimeout(() => { setMessage('') }, 3000)
+            }
+        }
     }
 
     const handleDeleteFromPlam = async (info) => {
 
-        const data = {
-            dayName: day,
-            exerciseId: info.exerciseId,
-        };
+        if (trainee) {
+
+            const data = {
+                dayName: day,
+                exerciseId: info.exerciseId,
+            };
 
 
-        try {
-            const response = await TraineeServices.removeFromTraineePlan(traineeId, data);
+            try {
+                const response = await TraineeServices.removeFromTraineePlan(traineeId, data);
 
+                setDeleteMessage('The exercises deleted successfully')
+                setTimeout(() => { setDeleteMessage('') }, 3000)
 
-            dispatch({ type: ACTION.SET_PLAN, payload: response.data })
-        } catch (err) {
-            console.log(err)
+                dispatch({ type: ACTION.SET_PLAN, payload: response.data })
+            } catch (err) {
+                console.log(err)
+            }
+        }
+
+        if (!trainee) {
+            const data = {
+                dayName: day,
+                exerciseId: info.exerciseId,
+            };
+
+            try {
+                const response = await usersService.removeExercise(user._id, data)
+                setDeleteMessage('The exercises deleted successfully')
+                setTimeout(() => { setDeleteMessage('') }, 3000)
+
+                dispatch({ type: ACTION.SET_PLAN, payload: response.data })
+            } catch (err) {
+                console.log(err)
+            }
         }
     }
 
@@ -78,20 +127,21 @@ function MoreAction() {
 
     return <>
         <div className="text-center container p-4">
-            <h1>Manage Plan</h1>
+            <h2 className="m-4">Manage Plan</h2>
+            {deleteMessage && <div className="alert alert-secondary">{deleteMessage}</div>}
             <div className="d-flex flex-wrap justify-content-center gap-4">
-                {console.log(specificDay)}
-                {
+                {console.log(Object.keys(plan).length)}
+                {Object.keys(plan).length > 0 && (
                     specificDay && specificDay["exercises"].map((ex, index) => {
                         return <ExerciseCard key={index} exInfo={ex} deleteFromPlan={handleDeleteFromPlam}></ExerciseCard>
-                    })
+                    }))
                 }
 
             </div>
 
             <h3 className="m-5">Add exercise</h3>
             <form >
-                {/* {message && <div className="alert alert-secondary">{message}</div>} */}
+                {message && <div className="alert alert-secondary">{message}</div>}
                 <div className="input-group m-3 " >
                     <select
                         onChange={(e) => setExerciseId(e.target.value)}
