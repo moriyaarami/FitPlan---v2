@@ -1,0 +1,15 @@
+#sendButton {
+    background-color: #A569BD;
+    color: black;
+    margin-top: 5px;
+}
+
+#sendButton:hover {
+    background-color: #9B59B6;
+    color: white;
+}
+
+#closeButton:hover {
+    background-color: black;
+    color: white;
+}

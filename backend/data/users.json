@@ -1,0 +1,33 @@
+{
+    "users": [
+        {
+            "name": "user",
+            "email": "user@gmail.com",
+            "phone": "0556866638",
+            "password": "12345678",
+            "traineeLevel": "Pro",
+            "isAdmin": true
+        },
+        {
+            "name": "user2",
+            "email": "user2@gmail.com",
+            "phone": "0556866638",
+            "password": "12345678",
+            "traineeLevel": "Pro"
+        },
+        {
+            "name": "user3",
+            "email": "user3@gmail.com",
+            "phone": "0556866638",
+            "password": "12345678",
+            "traineeLevel": "Pro"
+        },
+        {
+            "name": "user4",
+            "email": "user4@gmail.com",
+            "phone": "0556866638",
+            "password": "12345678",
+            "traineeLevel": "Pro"
+        }
+    ]
+}

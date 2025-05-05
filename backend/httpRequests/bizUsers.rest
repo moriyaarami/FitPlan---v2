@@ -1,0 +1,51 @@
+@local=http://localhost:3000
+
+@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NzliZTdmMGE5MWFiNTAxOGU5Zjg5ZjEiLCJhZG1pbiI6ZmFsc2UsImJpeiI6dHJ1ZSwiaWF0IjoxNzM4MjcwNzE3fQ.91XBdO_3gAx_ynRK37KPcxyhaGhRpUHqcpNR3SDZX4Y
+
+@id=679be7f0a91ab5018e9f89f1
+
+###signUp (everyOne)
+POST {{local}}/api/bizuser/signup
+Content-Type: application/json
+
+{
+    "name":"moriya",
+    "email":"mori@gmail.com",
+    "phone":"0556866638",
+    "password":"12345678"
+}
+
+###logIn (everyOne)
+POST {{local}}/api/bizuser/login
+Content-Type: application/json
+
+{
+    "email":"mori@gmail.com",
+    "password":"12345678"
+}
+
+###get all the users (admin user)
+GET {{local}}/api/bizuser/
+x-auth-token:{{token}}
+
+###get user by id (the user or admin user)
+GET {{local}}/api/bizuser/{{id}}
+x-auth-token:{{token}}
+
+###edit user by id (the user)
+PUT {{local}}/api/bizuser/{{id}}
+Content-Type: application/json
+x-auth-token:{{token}}
+
+{
+    "name":"tt",
+    "phone":"0556866638"
+}
+
+###delete user (the user or admin user)
+DELETE {{local}}/api/bizuser/{{id}}
+x-auth-token:{{token}}
+
+###get specific trainee by id
+GET {{local}}/api/bizuser/{{id}}/getmyTrainee/679be4c754e4c27e8f9a21db
+x-auth-token:{{token}}

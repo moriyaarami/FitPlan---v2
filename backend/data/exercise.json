@@ -1,0 +1,132 @@
+{
+    "exercises": [
+        {
+            "name": "Plank with Rotation",
+            "description": "Hold a plank position on your elbows, rotate your upper body towards one hand while maintaining balance.",
+            "category": "Core",
+            "difficulty": "Intermediate",
+            "equipment": "None",
+            "location": "Floor"
+        },
+        {
+            "name": "Push-ups",
+            "description": "Start in a high plank position and lower your body to the ground, then push back up.",
+            "category": "Upper Body",
+            "difficulty": "Beginner",
+            "equipment": "None",
+            "location": "Floor"
+        },
+        {
+            "name": "Squats",
+            "description": "Stand with feet shoulder-width apart, bend your knees, and lower your body as if sitting in a chair, then rise back up.",
+            "category": "Lower Body",
+            "difficulty": "Beginner",
+            "equipment": "None",
+            "location": "Floor"
+        },
+        {
+            "name": "Burpees",
+            "description": "Start standing, drop into a squat, jump your feet back to plank position, perform a push-up, then jump back to squat and jump up.",
+            "category": "Full Body",
+            "difficulty": "Intermediate",
+            "equipment": "None",
+            "location": "Floor"
+        },
+        {
+            "name": "Deadlifts",
+            "description": "Stand with feet shoulder-width apart, bend at the hips and knees to grab a barbell, and lift it by straightening your hips and knees.",
+            "category": "Lower Body",
+            "difficulty": "Advanced",
+            "equipment": "Barbell",
+            "location": "Weights Area"
+        },
+        {
+            "name": "Pull-ups",
+            "description": "Hang from a bar with your palms facing away and pull your chin above the bar.",
+            "category": "Upper Body",
+            "difficulty": "Advanced",
+            "equipment": "Pull-up Bar",
+            "location": "Pull-up Area"
+        },
+        {
+            "name": "Mountain Climbers",
+            "description": "Start in a plank position, then alternate bringing each knee towards your chest as fast as you can.",
+            "category": "Core",
+            "difficulty": "Intermediate",
+            "equipment": "None",
+            "location": "Floor"
+        },
+        {
+            "name": "Lunges",
+            "description": "Step forward with one leg, lower your hips to drop your back knee towards the floor, then return to the starting position.",
+            "category": "Lower Body",
+            "difficulty": "Beginner",
+            "equipment": "None",
+            "location": "Floor"
+        },
+        {
+            "name": "Russian Twists",
+            "description": "Sit on the floor with knees bent and lean back slightly. Rotate your torso from side to side, tapping the floor next to you.",
+            "category": "Core",
+            "difficulty": "Intermediate",
+            "equipment": "None",
+            "location": "Floor"
+        },
+        {
+            "name": "Bench Press",
+            "description": "Lie on a bench and press a barbell upward, then lower it back to chest level.",
+            "category": "Upper Body",
+            "difficulty": "Intermediate",
+            "equipment": "Barbell, Bench",
+            "location": "Weights Area"
+        },
+        {
+            "name": "Leg Raises",
+            "description": "Lie on your back, raise your legs towards the ceiling while keeping them straight, and slowly lower them back down.",
+            "category": "Core",
+            "difficulty": "Intermediate",
+            "equipment": "None",
+            "location": "Floor"
+        },
+        {
+            "name": "Bicep Curls",
+            "description": "Stand tall, hold dumbbells in each hand with palms facing forward, and curl the weights towards your shoulders.",
+            "category": "Upper Body",
+            "difficulty": "Beginner",
+            "equipment": "Dumbbells",
+            "location": "Weights Area"
+        },
+        {
+            "name": "Tricep Dips",
+            "description": "Sit on a bench, place your hands behind you, and lower your body by bending your elbows. Push back up to the starting position.",
+            "category": "Upper Body",
+            "difficulty": "Beginner",
+            "equipment": "Bench",
+            "location": "Weights Area"
+        },
+        {
+            "name": "Glute Bridges",
+            "description": "Lie on your back with knees bent, feet flat on the floor. Lift your hips to create a straight line from knees to shoulders, then lower back down.",
+            "category": "Lower Body",
+            "difficulty": "Beginner",
+            "equipment": "None",
+            "location": "Floor"
+        },
+        {
+            "name": "Kettlebell Swings",
+            "description": "Stand with feet wider than shoulder-width apart, swing a kettlebell between your legs, then drive your hips forward to swing it up.",
+            "category": "Full Body",
+            "difficulty": "Intermediate",
+            "equipment": "Kettlebell",
+            "location": "Weights Area"
+        },
+        {
+            "name": "Box Jumps",
+            "description": "Stand in front of a box, squat down, and jump onto the box with both feet, then step back down.",
+            "category": "Lower Body",
+            "difficulty": "Intermediate",
+            "equipment": "Box",
+            "location": "Floor"
+        }
+    ]
+}

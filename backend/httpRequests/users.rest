@@ -1,0 +1,73 @@
+@local=http://localhost:3000
+
+@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NzliZTZiMGE5MWFiNTAxOGU5Zjg5ZDgiLCJhZG1pbiI6ZmFsc2UsImJpeiI6ZmFsc2UsImlhdCI6MTczODI3MDM5OX0.Y53r_LQ9VLfHfsnpIVtoua-tGkNo7leIj0LXKd_Jals
+
+@id=679be6b0a91ab5018e9f89d8
+
+###signUp (everyOne)
+POST {{local}}/api/user/signup
+Content-Type: application/json
+
+{
+    "name":"moriya",
+    "email":"moriya@gmail.com",
+    "phone":"0556866638",
+    "password":"12345678",
+    "traineeLevel":"Pro"
+}
+
+###logIn (everyOne)
+POST {{local}}/api/user/login
+Content-Type: application/json
+
+{
+    "email":"user@gmail.com",
+    "password":"12345678"
+}
+
+###get all the users (admin user)
+GET {{local}}/api/user/
+x-auth-token:{{token}}
+
+###get user by id (the user or admin user)
+GET {{local}}/api/user/{{id}}
+x-auth-token:{{token}}
+
+###edit user by id (the user or admin user)
+PUT {{local}}/api/user/{{id}}
+Content-Type: application/json
+x-auth-token:{{token}}
+
+{
+    "name":"moriya",
+    "phone":"0556866638",
+    "traineeLevel":"Beginner"
+}
+
+###delete user (the user or admin user)
+DELETE {{local}}/api/user/{{id}}
+x-auth-token:{{token}}
+
+### add exercise to myPlan
+PATCH {{local}}/api/user/addToMyPlan/67a1e27c7c68683975e03808
+Content-Type: application/json
+x-auth-token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2N2ExZTI3YzdjNjg2ODM5NzVlMDM4MDgiLCJhZG1pbiI6dHJ1ZSwiYml6IjpmYWxzZSwiaWF0IjoxNzM4Njg3MzA4fQ.JXHsk0SKKBMQPd7imsihzFDZuzxytIDQOwvdIk0TNCU
+
+{
+    "dayName":"Monday",
+"exerciseId":"67a1e1ad42522be21847c15c",
+"sets":3,
+ "reps":10
+} 
+
+
+###remove exercise from myPlan
+PATCH {{local}}/api/user/removeFromMyPlan/67a1e27c7c68683975e03808
+Content-Type: application/json
+x-auth-token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2N2ExZTI3YzdjNjg2ODM5NzVlMDM4MDgiLCJhZG1pbiI6dHJ1ZSwiYml6IjpmYWxzZSwiaWF0IjoxNzM4Njg3MzA4fQ.JXHsk0SKKBMQPd7imsihzFDZuzxytIDQOwvdIk0TNCU
+
+{
+ "dayName":"Sunday",
+"exerciseId":"67a1e1ad42522be21847c15b"
+}
+

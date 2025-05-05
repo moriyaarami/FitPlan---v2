@@ -1,0 +1,55 @@
+@local=http://localhost:3000
+
+@adminToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NzkzNjNiNDhjMTI3MTJmMTNjNGFlYzQiLCJhZG1pbiI6dHJ1ZSwiYml6IjpmYWxzZSwiaWF0IjoxNzM3OTAzNjUxfQ.fpbPs2QfjmpxZYVWP2g7jc6sar8KtBoVvjX2CtFb_3M
+
+### create new exercise
+POST {{local}}/api/exercise/create
+Content-Type: application/json
+x-auth-token:{{adminToken}}
+
+{
+    "name": "running",
+    "description": "running exercise, run for 15 minutes",
+    "category": "Cardio",
+    "difficulty":"Beginner",
+    "equipment":"none",
+"location":"cardio location"
+}
+
+### update exercise
+PUT {{local}}/api/exercise/update/67964e7d817073167c6b3bd8
+Content-Type: application/json
+x-auth-token:{{adminToken}}
+
+
+    {
+    "name": "running",
+    "description": "running exercise, run for 15 minutes",
+    "category": "Cardio",
+    "difficulty":"Beginner",
+    "equipment":"walker",
+"location":"cardio location"
+}
+
+### delete exercise
+
+DELETE {{local}}/api/exercise/delete/67964e7d817073167c6b3bd8
+Content-Type: application/json
+x-auth-token:{{adminToken}}
+
+
+### every one can do this actions
+### get all exercises
+GET {{local}}/api/exercise
+
+### get exercise by name
+GET {{local}}/api/exercise/name?exercise=running
+
+### get exercise by category
+
+GET {{local}}/api/exercise/category?category=Full Body
+
+### get exercise by difficulty
+
+GET {{local}}/api/exercise/difficulty?difficulty=Beginner
+

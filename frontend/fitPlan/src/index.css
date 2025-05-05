@@ -1,0 +1,8 @@
+body.dark {
+    color: rgb(255, 255, 255);
+    background-color: rgba(27, 25, 25, 0.59);
+}
+
+body.light {
+    color: rgb(0, 0, 0);
+}

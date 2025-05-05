@@ -1,0 +1,69 @@
+@local=http://localhost:3000
+
+@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NzkyYjk0OTNiMTIwNTYwOWI5N2Y3ODQiLCJhZG1pbiI6ZmFsc2UsImJpeiI6ZmFsc2UsImlhdCI6MTczNzY2OTk4M30.idHszrXHkmj087hCHOaH-feyljS4cZfCwoDxggOBd9A
+
+### create new trainee(must be biz user)
+POST {{local}}/api/bizuser/trainee/add
+Content-Type: application/json
+x-auth-token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2N2EyNDYwOGRhNjZiZTgwNzlhODFlYzEiLCJhZG1pbiI6ZmFsc2UsImJpeiI6dHJ1ZSwiaWF0IjoxNzM4Njg5MTI2fQ.P_8VqajQCU3xhBq3l7tkqBZODECTT8zPMo70xHXtVPM
+
+{
+    "name":"mor",
+    "phone":"0556866630",
+    "password":"12345678",
+    "traineeLevel":"Pro"
+}
+
+###gel the all trainees of the users
+GET {{local}}/api/bizuser/trainee
+x-auth-token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2N2EwZWYzZDIyOTRkM2FiMDM0ZDRjZTUiLCJhZG1pbiI6ZmFsc2UsImJpeiI6dHJ1ZSwiaWF0IjoxNzM4NjAwMjU1fQ.-RlObm7DvdpiHQSkGbQfxAZ9lWDScWYGm1Ha7SdVaEg
+
+###get all my trainees
+GET {{local}}/api/bizuser/trainee/myTrainees
+x-auth-token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2N2EwZWYzZDIyOTRkM2FiMDM0ZDRjZTUiLCJhZG1pbiI6ZmFsc2UsImJpeiI6dHJ1ZSwiaWF0IjoxNzM4NjAwMjU1fQ.-RlObm7DvdpiHQSkGbQfxAZ9lWDScWYGm1Ha7SdVaEg
+
+###get specific trainee by id
+GET {{local}}/api/bizuser/trainee/67a0ef4f2294d3ab034d4cea
+x-auth-token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2N2EwZWYzZDIyOTRkM2FiMDM0ZDRjZTUiLCJhZG1pbiI6ZmFsc2UsImJpeiI6dHJ1ZSwiaWF0IjoxNzM4NjAwMjU1fQ.-RlObm7DvdpiHQSkGbQfxAZ9lWDScWYGm1Ha7SdVaEg
+
+###edit trainee by id
+PUT {{local}}/api/bizuser/trainee/67a0e9ac35fb3fc9314b62a4
+Content-Type: application/json
+x-auth-token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2N2EwZTk4OTM1ZmIzZmM5MzE0YjYyOWYiLCJhZG1pbiI6ZmFsc2UsImJpeiI6dHJ1ZSwiaWF0IjoxNzM4NTk4ODAwfQ.AsodDPi86cTcVuHQIIBtpXBT0Q0yuTgpMxxdipWGmMk
+
+{
+    "name":"tmt",
+    "image":{
+        "url":"",
+        "alt":""
+        },
+   "password":"12345678",
+   "traineeLevel":"Pro"
+}
+
+###delete trainee by id
+DELETE {{local}}/api/bizuser/trainee/67a0f2c3f8cf001e8982a194
+x-auth-token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2N2EwZWYzZDIyOTRkM2FiMDM0ZDRjZTUiLCJhZG1pbiI6ZmFsc2UsImJpeiI6dHJ1ZSwiaWF0IjoxNzM4NjAwMjU1fQ.-RlObm7DvdpiHQSkGbQfxAZ9lWDScWYGm1Ha7SdVaEg
+
+### add to my plan exercise 
+PATCH {{local}}/api/bizuser/trainee/addToTraineePlan/67a24a9455736aad348ffeef
+Content-Type: application/json
+x-auth-token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2N2EyNDYwOGRhNjZiZTgwNzlhODFlYzEiLCJhZG1pbiI6ZmFsc2UsImJpeiI6dHJ1ZSwiaWF0IjoxNzM4Njg5MTI2fQ.P_8VqajQCU3xhBq3l7tkqBZODECTT8zPMo70xHXtVPM
+
+{
+    "dayName":"Sunday",
+"exerciseId":"67a1e1ad42522be21847c15b",
+"sets":3,
+ "reps":10,
+ "weight":0
+}
+
+### remove from my plan exercise
+PATCH {{local}}/api/bizuser/trainee/removeFromTraineePlan/67a24a9455736aad348ffeef
+Content-Type: application/json
+x-auth-token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2N2EyNDYwOGRhNjZiZTgwNzlhODFlYzEiLCJhZG1pbiI6ZmFsc2UsImJpeiI6dHJ1ZSwiaWF0IjoxNzM4Njg5MTI2fQ.P_8VqajQCU3xhBq3l7tkqBZODECTT8zPMo70xHXtVPM
+
+{
+ "dayName":"Sunday",
+"exerciseId":"67a1e1ad42522be21847c15b"
+}

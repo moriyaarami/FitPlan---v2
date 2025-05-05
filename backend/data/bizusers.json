@@ -1,0 +1,29 @@
+{
+    "bizUsers": [
+        {
+            "name": "biz",
+            "email": "biz@gmail.com",
+            "phone": "0556866638",
+            "password": "12345678",
+            "isAdmin": true
+        },
+        {
+            "name": "biz",
+            "email": "biz@gmail.com",
+            "phone": "0556866638",
+            "password": "12345678"
+        },
+        {
+            "name": "biz",
+            "email": "moriya@gmail.com",
+            "phone": "0556866638",
+            "password": "12345678"
+        },
+        {
+            "name": "biz",
+            "email": "moriya@gmail.com",
+            "phone": "0556866638",
+            "password": "12345678"
+        }
+    ]
+}
