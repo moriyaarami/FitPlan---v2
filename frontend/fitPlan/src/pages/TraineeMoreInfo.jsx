@@ -12,7 +12,10 @@ function TraineeInfo() {
 
     const { plan, dispatch } = usePlan();
 
+
+
     useEffect(() => { dispatch({ type: ACTION.SET_PLAN, payload: traineeInfo.myPlan }) }, [location])
+
 
 
 
@@ -22,8 +25,8 @@ function TraineeInfo() {
                 <h3 className="p-2 ">Program Plan</h3>
                 <div className="d-flex flex-wrap justify-content-center gap-4">
                     {plan.map((day, index) => {
+                        return <PlanCard key={index} info={day} traineeId={traineeId} trainee={true}></PlanCard>
 
-                        return <PlanCard key={index} info={day} traineeId={traineeId}></PlanCard>
                     })}
                 </div>
             </div>
