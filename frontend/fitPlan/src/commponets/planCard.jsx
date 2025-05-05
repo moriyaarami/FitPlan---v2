@@ -4,22 +4,39 @@ import { ACTION, usePlan } from "../context/plan.context";
 import MoreAction from "../pages/moreActions";
 import { useEffect, useState } from "react";
 import TraineeServices from "../services/traineeServices";
+import usersService from "../services/userService";
+import { useAuth } from "../context/auth.context";
 
-function PlanCard({ info, traineeId }) {
-
+function PlanCard({ info, traineeId, trainee }) {
+    console.log(trainee)
     const day = info.day;
 
     const exercisesFromServer = useEx();
     const { plan, dispatch } = usePlan();
+    const { user } = useAuth()
+
     const [exerciseDetails, setExerciseDetails] = useState([]);
 
+
+
     const fetchPlan = async () => {
-        try {
-            const response = await TraineeServices.getTraineeById(traineeId);
-            dispatch({ type: ACTION.SET_PLAN, payload: response.data[0].myPlan })
-        } catch (err) {
-            console.log(err)
+        if (trainee) {
+            try {
+                const response = await TraineeServices.getTraineeById(traineeId);
+                dispatch({ type: ACTION.SET_PLAN, payload: response.data[0].myPlan })
+            } catch (err) {
+                console.log(err)
+            }
         }
+        if (!trainee) {
+            try {
+                const response = await usersService.getUserById(user._id)
+                dispatch({ type: ACTION.SET_PLAN, payload: response.myPlan })
+            } catch (err) {
+                console.log(err)
+            }
+        }
+
     }
     useEffect(() => { fetchPlan() }, [])
 
@@ -61,7 +78,7 @@ function PlanCard({ info, traineeId }) {
                     }
                 </div>
             </div>
-            <NavLink to="/more-actions" state={{ exerciseDetails, day, traineeId }} className="btn btn-dark mt-3" >Manage Exercises</NavLink>
+            <NavLink to="/more-actions" state={{ exerciseDetails, day, traineeId, trainee }} className="btn btn-dark mt-3" >Manage Exercises</NavLink>
 
 
 
